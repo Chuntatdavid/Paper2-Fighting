@@ -10,7 +10,6 @@ st.set_page_config(page_title="保险中介人 Paper 2 刷题", layout="centered
 # ==================== 读取题目 ====================
 import sys, os  # ← 如果文件最前面已经有这行就不用重复写
 
-@st.cache_data
 def load_questions():
     # 关键修复：打包成 exe 后也能找到 questions.csv
     csv_path = os.path.join(getattr(sys, "_MEIPASS", os.path.dirname(__file__)), "questions.csv")
@@ -189,4 +188,5 @@ else:
 
         if st.button("再来一轮", type="primary"):
             st.session_state.clear()
+
             st.rerun()
